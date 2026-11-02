@@ -344,3 +344,27 @@ input::placeholder { color: rgba(44, 63, 20, 0.5); font-style: italic; }
 .form-status { font-style: italic; color: var(--olive); }
 .site-footer .footer-nav a { opacity: 0.9; }
 /* Dark text on the fixed header when it sits over light sections is handled by the solid bar after scrolling */
+
+/* ---------- Smooth nav + reveals ---------- */
+.site-header {
+  transition: transform 0.55s var(--ease), background-color 0.4s var(--ease), padding 0.4s var(--ease);
+  will-change: transform;
+}
+.site-header.nav-hidden { transform: translateY(-110%); }
+.site-header.scrolled .header-inner { padding-bottom: 0.65rem; }
+.site-header.scrolled { padding-top: 0.7rem; box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.6); }
+.site-nav a { position: relative; text-decoration: none !important; }
+.site-nav a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: currentColor;
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease);
+}
+.site-nav a:hover::after, .site-nav a:focus-visible::after { transform: scaleX(1); }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.9s var(--ease) var(--d, 0ms), transform 0.9s var(--ease) var(--d, 0ms); }
+.reveal.in { opacity: 1; transform: none; }
+.tile.reveal.in:hover { transform: translateY(-6px); transition-delay: 0ms; transition-duration: 0.5s; }
+.tile img, .gallery-item img { animation: fadeIn 0.9s var(--ease) both; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 960px) {
+  .site-nav { transform-origin: top; animation: menuIn 0.35s var(--ease); }
+  @keyframes menuIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+}
