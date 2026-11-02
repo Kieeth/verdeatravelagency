@@ -303,6 +303,55 @@ siteNav.querySelectorAll('a').forEach((link) => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('walkability-form');
+  const scoreDisplay = document.getElementById('total-score');
+  const interpretationDisplay = document.getElementById('score-interpretation');
+  const statusMsg = document.getElementById('eval-form-status');
+
+  if (!form) return;
+
+  // Function to calculate total score and interpretation
+  function updateScore() {
+    let score = 0;
+    const questions = 14;
+
+    for (let i = 1; i <= questions; i++) {
+      const selected = form.querySelector(`input[name="q${i}"]:checked`);
+      if (selected) {
+        score += parseInt(selected.value, 10);
+      }
+    }
+
+    scoreDisplay.textContent = score;
+
+    // Interpretations[cite: 1, 2]
+    if (score >= 11) {
+      interpretationDisplay.textContent = 'Rating: 11-14 | Highly Walkable — Optimal for slow tourism; supports immersive, unhurried exploration.';
+      interpretationDisplay.className = 'score-interpretation high';
+    } else if (score >= 7) {
+      interpretationDisplay.textContent = 'Rating: 7-10 | Moderately Walkable — Acceptable for slow tourism; targeted improvements recommended.';
+      interpretationDisplay.className = 'score-interpretation moderate';
+    } else if (score >= 4) {
+      interpretationDisplay.textContent = 'Rating: 4-6 | Poorly Walkable — Significant barriers discourage sustained pedestrian and tourist activity.';
+      interpretationDisplay.className = 'score-interpretation poor';
+    } else {
+      interpretationDisplay.textContent = 'Rating: 0-3 | Not Walkable — Incompatible with slow tourism. Major infrastructure investment required.';
+      interpretationDisplay.className = 'score-interpretation low';
+    }
+  }
+
+  // Update live on radio selection changes
+  form.addEventListener('change', updateScore);
+
+  // Form submission handler
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    statusMsg.textContent = 'Thank you! Your evaluation has been saved successfully.';
+    statusMsg.style.color = '#84a98c';
+  });
+});
+
 /* =========================================================
    Contact form
    ========================================================= */

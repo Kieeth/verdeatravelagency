@@ -253,6 +253,99 @@ address { font-style: normal; font-size: 1.2rem; }
 .lb-prev { left: 0.5rem; }
 .lb-next { right: 0.5rem; }
 
+/* ==========================================================================
+   Light Background Separation for Walkability Evaluation
+   ========================================================================== */
+
+.section-eval-light {
+  background-color: #f7f9f5; /* Soft, clean off-white with a tiny hint of nature green */
+  color: #2b3327;            /* Dark, legible text color */
+  border-top: 1px solid #d8e2dc;
+  border-bottom: 1px solid #d8e2dc;
+  padding: 4rem 1rem;
+}
+
+.section-eval-light .display {
+  color: #1b2614;
+}
+
+.section-eval-light .lead {
+  color: #4a5741;
+}
+
+.section-eval-light .eval-fieldset {
+  background: #ffffff;
+  border: 1px solid #cbd5cb;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.section-eval-light .eval-fieldset legend {
+  color: #2f3e1d;
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+.section-eval-light .eval-question {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.section-eval-light .eval-question p {
+  color: #2b3327;
+}
+
+.section-eval-light input[type="text"],
+.section-eval-light input[type="date"],
+.section-eval-light textarea {
+  background-color: #ffffff;
+  color: #2b3327;
+  border: 1px solid #b7c4b7;
+  border-radius: 4px;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+.section-eval-light input[type="text"]:focus,
+.section-eval-light input[type="date"]:focus,
+.section-eval-light textarea:focus {
+  border-color: #52796f;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(82, 121, 111, 0.15);
+}
+
+.score-card-light {
+  background: #ffffff;
+  border: 1px solid #cbd5cb;
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: center;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.btn-eval-light {
+  background-color: #354f52;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-eval-light:hover {
+  background-color: #2f3e1d;
+}
+
+/* Score Interpretations adjusted for light background visibility */
+.section-eval-light .score-interpretation.high { color: #2d6a4f; font-weight: bold; }
+.section-eval-light .score-interpretation.moderate { color: #b5838d; font-weight: bold; }
+.section-eval-light .score-interpretation.poor { color: #e07a5f; font-weight: bold; }
+.section-eval-light .score-interpretation.low { color: #bc4749; font-weight: bold; }
 /* ---------- Buttons and form ---------- */
 .btn {
   display: inline-block; padding: 0.85rem 1.8rem; border: 1px solid transparent; border-radius: 999px; cursor: pointer;
