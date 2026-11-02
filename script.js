@@ -353,6 +353,9 @@ if (!prefersReducedMotion && 'IntersectionObserver' in window) {
   bar.hidden = false;
   frame.classList.add('enhanced');
 
+  const seek = document.getElementById('vc-seek');
+  video.addEventListener('timeupdate', () => { if (video.duration && !seek.matches(':active')) seek.value = (video.currentTime / video.duration) * 100; });
+  seek.addEventListener('input', () => { if (video.duration) video.currentTime = (seek.value / 100) * video.duration; });
   const labels = () => {
     btnPlay.textContent = video.paused ? 'Play' : 'Pause';
     btnSound.textContent = video.muted ? 'Sound on' : 'Sound off';
@@ -381,4 +384,69 @@ if (!prefersReducedMotion && 'IntersectionObserver' in window) {
     if (entry.isIntersecting) { video.preload = 'auto'; io.disconnect(); }
   }, { rootMargin: '600px 0px' }).observe(frame);
   labels();
+})();
+
+/* =========================================================
+   Walkability evaluation: live score + rating
+   ========================================================= */
+(() => {
+  const form = document.getElementById('walkability-form');
+  if (!form) return;
+  const scoreEl = document.getElementById('total-score');
+  const textEl = document.getElementById('score-interpretation');
+  const statusEl = document.getElementById('eval-form-status');
+  const TOTAL = 14;
+
+  const RATINGS = [
+    { min: 11, cls: 'high',     text: 'Rating 11-14 | Highly Walkable: optimal for slow tourism; supports immersive, unhurried exploration.' },
+    { min: 7,  cls: 'moderate', text: 'Rating 7-10 | Moderately Walkable: acceptable for slow tourism; targeted improvements recommended.' },
+    { min: 4,  cls: 'poor',     text: 'Rating 4-6 | Poorly Walkable: significant barriers discourage sustained pedestrian and tourist activity.' },
+    { min: 0,  cls: 'low',      text: 'Rating 0-3 | Not Walkable: incompatible with slow tourism. Major infrastructure investment required.' },
+  ];
+
+  const getScore = () => {
+    let score = 0, answered = 0;
+    for (let i = 1; i <= TOTAL; i++) {
+      const picked = form.querySelector(`input[name="q${i}"]:checked`);
+      if (picked) { score += Number(picked.value); answered++; }
+    }
+    return { score, answered };
+  };
+
+  const update = () => {
+    const { score, answered } = getScore();
+    scoreEl.textContent = score;
+    if (!answered) {
+      textEl.textContent = 'Answer the questions to see the walkability rating.';
+      textEl.className = 'score-interpretation';
+      return;
+    }
+    if (answered < TOTAL) {
+      textEl.textContent = `${answered} of ${TOTAL} answered. The rating appears once every question is answered.`;
+      textEl.className = 'score-interpretation';
+      return;
+    }
+    const rating = RATINGS.find((r) => score >= r.min);
+    textEl.textContent = rating.text;
+    textEl.className = `score-interpretation ${rating.cls}`;
+  };
+
+  form.addEventListener('change', update);
+  form.addEventListener('reset', () => setTimeout(update));
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    statusEl.classList.remove('error');
+    if (!form.checkValidity()) {
+      const firstBad = form.querySelector(':invalid');
+      statusEl.textContent = 'Please fill in your name, the location, the date, and answer all 14 questions.';
+      statusEl.classList.add('error');
+      if (firstBad) firstBad.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
+      return;
+    }
+    const { score } = getScore();
+    // Hook up a real submission (email service, backend, sheet) here
+    statusEl.textContent = `Thanks! Your evaluation was received. Final score: ${score} / ${TOTAL}.`;
+    form.reset();
+  });
 })();
