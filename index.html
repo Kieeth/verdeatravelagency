@@ -3,70 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Verdea Travel Agency</title>
+  <title>Verdea Tour Agency | Pine &amp; Pause</title>
+  <meta name="description" content="Pine &amp; Pause: a 2-day highland escapade in Baguio by Verdea Tour Agency.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <header class="site-header">
-    <a href="#home" class="logo">Verdea</a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
-    <nav class="site-nav" id="site-nav">
-      <a href="#destinations">Destinations</a>
-      <a href="#packages">Packages</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="header-inner">
+      <a href="#home" class="logo">Verdea</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <a href="#package">Package</a>
+        <a href="#day-1">Itinerary</a>
+        <a href="#summary">Costing</a>
+        <a href="#contact">Book</a>
+      </nav>
+      <span class="tagline">Tour &amp; Travel Management</span>
+    </div>
   </header>
 
   <main>
+
     <!-- Hero -->
     <section id="home" class="hero">
-      <div class="container">
-        <h1><!-- Main headline --></h1>
-        <p><!-- Short tagline --></p>
-        <a href="#packages" class="btn">View packages</a>
+      <div class="hero-content">
+        <p class="hero-agency">Verdea Tour Agency</p>
+        <h1 class="hero-title">
+          <span class="script">Pine</span>
+          <span class="script amp">&amp;</span>
+          <span>Pause</span>
+        </h1>
+        <p class="hero-sub">Unplug, unwind, and reconnect: a 2-day highland escapade</p>
+        <a href="#package" class="btn btn-light">View the package</a>
       </div>
     </section>
 
-    <!-- Destinations -->
-    <section id="destinations" class="section">
-      <div class="container">
-        <h2>Destinations</h2>
-        <div class="grid" id="destination-list">
-          <!-- Destination cards go here -->
+    <!-- Package overview -->
+    <section id="package" class="split">
+      <div class="split-text">
+        <h2 class="display">Baguio Slow Tourism Package</h2>
+        <dl class="facts">
+          <dt>Duration:</dt>
+          <dd>2 Days &amp; 1 Night</dd>
+          <dt>No. of Participants:</dt>
+          <dd>5 Persons</dd>
+          <dt>Currency:</dt>
+          <dd>Philippine Peso (&#8369;)</dd>
+        </dl>
+      </div>
+      <div class="photo photo-forest" role="img" aria-label="Pine forest above a misty lake"></div>
+    </section>
+
+    <!-- Accommodation -->
+    <section id="accommodation" class="section">
+      <div class="container two-col">
+        <div>
+          <h2 class="display">Accommodation</h2>
+          <h3 class="subhead">City Hub Condominium</h3>
+          <ul class="bullets"><li>1 night, 5 guests</li></ul>
+          <div class="table-wrap" data-table="accommodation"></div>
+        </div>
+        <div class="photo photo-stay rounded" role="img" aria-label="City Hub Condominium rooftop pool">
+          <p class="photo-note">92 Upper General Luna Road corner<br>Leonard Wood Road</p>
         </div>
       </div>
     </section>
 
-    <!-- Packages -->
-    <section id="packages" class="section section-alt">
+    <!-- Day 1 -->
+    <section id="day-1" class="section section-tint">
       <div class="container">
-        <h2>Packages</h2>
-        <div class="grid" id="package-list">
-          <!-- Package cards go here -->
+        <h2 class="display center">Day 1 Activities &amp; Expenses</h2>
+        <div class="tiles">
+          <figure class="tile tile-pilates"><figcaption>K Pilates</figcaption></figure>
+          <figure class="tile tile-forest-house"><figcaption>Forest House</figcaption></figure>
+          <figure class="tile tile-wellness"><figcaption>Be Better Wellness</figcaption></figure>
+          <figure class="tile tile-matcha"><figcaption>OTOO Matcha Drinks</figcaption></figure>
+          <figure class="tile tile-pottery"><figcaption>OTOO Pottery Workshop</figcaption></figure>
+        </div>
+        <div class="table-wrap" data-table="day1"></div>
+      </div>
+    </section>
+
+    <!-- Day 2 -->
+    <section id="day-2" class="section section-dark">
+      <div class="container">
+        <h2 class="display center">Day 2 Activities &amp; Expenses</h2>
+        <div class="panel">
+          <div class="table-wrap" data-table="day2"></div>
         </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section">
+    <!-- Transportation -->
+    <section id="transportation" class="section">
       <div class="container">
-        <h2>About us</h2>
-        <!-- About content goes here -->
+        <h2 class="pill">Transportation &amp; Tour Materials</h2>
+        <div class="table-wrap" data-table="transport"></div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section id="summary" class="section section-dark">
+      <div class="container">
+        <h2 class="display center">Summary of Tour Costing</h2>
+        <div class="panel">
+          <div class="table-wrap" data-table="summary"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cost per participant -->
+    <section class="split split-reverse" aria-labelledby="per-person-title">
+      <div class="split-text">
+        <div class="table-wrap" data-table="perPerson"></div>
+      </div>
+      <div class="olive-panel">
+        <h2 id="per-person-title">Estimated Package Cost Per Participant</h2>
+      </div>
+    </section>
+
+    <!-- Notes -->
+    <section id="notes" class="section">
+      <div class="container">
+        <h2 class="display">Costing Notes</h2>
+        <ul class="bullets notes" id="notes-list"></ul>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="section section-alt">
-      <div class="container">
-        <h2>Contact</h2>
+    <section id="contact" class="section section-tint">
+      <div class="container narrow">
+        <h2 class="display">Book this escape</h2>
         <form id="contact-form" novalidate>
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
+          <input type="text" id="name" name="name" autocomplete="name" required>
 
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" autocomplete="email" required>
 
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="4" required></textarea>
@@ -76,12 +153,12 @@
         </form>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Verdea Travel Agency</p>
-    </div>
+    <p class="thanks"><span class="script">Thank</span> <span>You</span></p>
+    <p class="footer-line">&copy; <span id="year"></span> Verdea Tour Agency &middot; Tour &amp; Travel Management</p>
   </footer>
 
   <script src="script.js"></script>
