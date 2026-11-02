@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Verdea Tour Agency | Pine &amp; Pause</title>
-  <meta name="description" content="Pine &amp; Pause: a 2-day highland escapade in Baguio by Verdea Tour Agency.">
+  <title>Pine &amp; Pause | Verdea Tour Agency</title>
+  <meta name="description" content="Pine &amp; Pause: a 2-day highland escapade in Baguio by Verdea Tour Agency. Unplug, unwind, and reconnect.">
+  <meta name="theme-color" content="#141b0b">
+
+  <!-- Favicons: add these files to your images folder (or change the names here) -->
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+  <!-- Social preview image -->
+  <meta property="og:title" content="Pine &amp; Pause | Verdea Tour Agency">
+  <meta property="og:description" content="A 2-day highland escapade in Baguio.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -12,14 +27,18 @@
 </head>
 <body>
 
-  <header class="site-header">
+  <a class="skip-link" href="#package">Skip to content</a>
+
+  <header class="site-header" id="site-header">
     <div class="header-inner">
-      <a href="#home" class="logo">Verdea</a>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
-      <nav class="site-nav" id="site-nav">
+      <a href="#home" class="logo" aria-label="Verdea Tour Agency, back to top">Verdea</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
         <a href="#package">Package</a>
+        <a href="#stay">Stay</a>
         <a href="#day-1">Itinerary</a>
-        <a href="#summary">Costing</a>
+        <a href="#watch">Watch</a>
+        <a href="#gallery">Gallery</a>
         <a href="#contact">Book</a>
       </nav>
       <span class="tagline">Tour &amp; Travel Management</span>
@@ -30,6 +49,8 @@
 
     <!-- Hero -->
     <section id="home" class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <video class="hero-video" id="hero-video" muted loop playsinline preload="auto" aria-hidden="true"></video>
       <div class="hero-content">
         <p class="hero-agency">Verdea Tour Agency</p>
         <h1 class="hero-title">
@@ -38,112 +59,108 @@
           <span>Pause</span>
         </h1>
         <p class="hero-sub">Unplug, unwind, and reconnect: a 2-day highland escapade</p>
-        <a href="#package" class="btn btn-light">View the package</a>
+        <p class="hero-place">Baguio City &middot; 2 days &amp; 1 night</p>
+        <div class="hero-actions">
+          <a href="#package" class="btn btn-light">Explore the escape</a>
+          <a href="#contact" class="btn btn-ghost">Plan your trip</a>
+        </div>
       </div>
+      <a class="scroll-cue" href="#package" aria-label="Scroll to the package"><span>Scroll</span></a>
     </section>
 
     <!-- Package overview -->
     <section id="package" class="split">
       <div class="split-text">
         <h2 class="display">Baguio Slow Tourism Package</h2>
+        <p class="lead">A slower way to see the highlands: wellness, good food, and hands-on craft, with room to breathe in between.</p>
         <dl class="facts">
-          <dt>Duration:</dt>
-          <dd>2 Days &amp; 1 Night</dd>
-          <dt>No. of Participants:</dt>
-          <dd>5 Persons</dd>
-          <dt>Currency:</dt>
-          <dd>Philippine Peso (&#8369;)</dd>
+          <div><dt>Duration</dt><dd>2 Days &amp; 1 Night</dd></div>
+          <div><dt>Participants</dt><dd>5 Persons</dd></div>
+          <div><dt>Destination</dt><dd>Baguio City</dd></div>
         </dl>
       </div>
-      <div class="photo photo-forest" role="img" aria-label="Pine forest above a misty lake"></div>
+      <div class="photo photo-package" role="img" aria-label="Pine forest above a misty lake"></div>
     </section>
 
-    <!-- Accommodation -->
-    <section id="accommodation" class="section">
+    <!-- Stay -->
+    <section id="stay" class="section section-tint">
       <div class="container two-col">
+        <div class="photo photo-stay rounded" role="img" aria-label="City Hub Condominium rooftop pool"></div>
         <div>
-          <h2 class="display">Accommodation</h2>
+          <h2 class="display">Where you'll stay</h2>
           <h3 class="subhead">City Hub Condominium</h3>
-          <ul class="bullets"><li>1 night, 5 guests</li></ul>
-          <div class="table-wrap" data-table="accommodation"></div>
-        </div>
-        <div class="photo photo-stay rounded" role="img" aria-label="City Hub Condominium rooftop pool">
-          <p class="photo-note">92 Upper General Luna Road corner<br>Leonard Wood Road</p>
+          <p class="stay-meta">1 night for 5 guests</p>
+          <address>92 Upper General Luna Road corner<br>Leonard Wood Road, Baguio City</address>
         </div>
       </div>
     </section>
 
     <!-- Day 1 -->
-    <section id="day-1" class="section section-tint">
+    <section id="day-1" class="section">
       <div class="container">
-        <h2 class="display center">Day 1 Activities &amp; Expenses</h2>
-        <div class="tiles">
-          <figure class="tile tile-pilates"><figcaption>K Pilates</figcaption></figure>
-          <figure class="tile tile-forest-house"><figcaption>Forest House</figcaption></figure>
-          <figure class="tile tile-wellness"><figcaption>Be Better Wellness</figcaption></figure>
-          <figure class="tile tile-matcha"><figcaption>OTOO Matcha Drinks</figcaption></figure>
-          <figure class="tile tile-pottery"><figcaption>OTOO Pottery Workshop</figcaption></figure>
-        </div>
-        <div class="table-wrap" data-table="day1"></div>
+        <h2 class="display">Day 1 Activities</h2>
+        <div class="tiles" id="day1-tiles"></div>
       </div>
     </section>
 
     <!-- Day 2 -->
     <section id="day-2" class="section section-dark">
       <div class="container">
-        <h2 class="display center">Day 2 Activities &amp; Expenses</h2>
-        <div class="panel">
-          <div class="table-wrap" data-table="day2"></div>
+        <h2 class="display">Day 2 Activities</h2>
+        <div class="tiles" id="day2-tiles"></div>
+      </div>
+    </section>
+
+    <!-- Transportation and materials -->
+    <section id="included" class="section">
+      <div class="container">
+        <h2 class="pill">Getting around &amp; tour materials</h2>
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>Local transportation and transfers</h3>
+            <p>Getting around Baguio is taken care of, including the ride to Camp John Hay.</p>
+          </article>
+          <article class="info-card">
+            <h3>Tour passport, stickers, and printed materials</h3>
+            <p>A printed tour passport and collectible stickers go with the interactive walking tour.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Transportation -->
-    <section id="transportation" class="section">
+    <!-- Featured video (hidden automatically until a video file exists) -->
+    <section id="watch" class="section section-dark" hidden>
       <div class="container">
-        <h2 class="pill">Transportation &amp; Tour Materials</h2>
-        <div class="table-wrap" data-table="transport"></div>
+        <h2 class="display">Watch the escape</h2>
+        <div class="video-frame" id="featured-video"></div>
+        <div class="clips" id="clips"></div>
       </div>
     </section>
 
-    <!-- Summary -->
-    <section id="summary" class="section section-dark">
+    <!-- Gallery (hidden automatically until photos exist) -->
+    <section id="gallery" class="section" hidden>
       <div class="container">
-        <h2 class="display center">Summary of Tour Costing</h2>
-        <div class="panel">
-          <div class="table-wrap" data-table="summary"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Cost per participant -->
-    <section class="split split-reverse" aria-labelledby="per-person-title">
-      <div class="split-text">
-        <div class="table-wrap" data-table="perPerson"></div>
-      </div>
-      <div class="olive-panel">
-        <h2 id="per-person-title">Estimated Package Cost Per Participant</h2>
-      </div>
-    </section>
-
-    <!-- Notes -->
-    <section id="notes" class="section">
-      <div class="container">
-        <h2 class="display">Costing Notes</h2>
-        <ul class="bullets notes" id="notes-list"></ul>
+        <h2 class="display">Gallery</h2>
+        <div class="gallery" id="gallery-grid"></div>
       </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="section section-tint">
-      <div class="container narrow">
-        <h2 class="display">Book this escape</h2>
+      <div class="container two-col top">
+        <div>
+          <h2 class="display">Book this escape</h2>
+          <p class="lead">Tell us when you'd like to go and how many are coming. We'll reply with availability and the details of your trip.</p>
+        </div>
         <form id="contact-form" novalidate>
           <label for="name">Name</label>
           <input type="text" id="name" name="name" autocomplete="name" required>
 
           <label for="email">Email</label>
           <input type="email" id="email" name="email" autocomplete="email" required>
+
+          <label for="date">Preferred dates <span class="opt">(optional)</span></label>
+          <input type="text" id="date" name="date" placeholder="e.g. a weekend in March">
 
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="4" required></textarea>
@@ -158,8 +175,24 @@
 
   <footer class="site-footer">
     <p class="thanks"><span class="script">Thank</span> <span>You</span></p>
-    <p class="footer-line">&copy; <span id="year"></span> Verdea Tour Agency &middot; Tour &amp; Travel Management</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#package">Package</a>
+      <a href="#day-1">Itinerary</a>
+      <a href="#contact">Book</a>
+    </nav>
+    <p class="footer-line">&copy; <span id="year"></span> Verdea Tour Agency. Tour &amp; Travel Management.</p>
   </footer>
+
+  <!-- Photo viewer -->
+  <dialog id="lightbox" class="lightbox" aria-label="Photo viewer">
+    <button class="lb-close" id="lb-close" aria-label="Close">&times;</button>
+    <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous photo">&#8249;</button>
+    <figure>
+      <img id="lb-img" alt="">
+      <figcaption id="lb-cap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lb-next" aria-label="Next photo">&#8250;</button>
+  </dialog>
 
   <script src="script.js"></script>
 </body>
