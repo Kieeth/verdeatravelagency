@@ -9,9 +9,7 @@
 
   <!-- Favicons: add these files to your images folder (or change the names here) -->
   <link rel="icon" href="images/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  
 
   <!-- Social preview image -->
   <meta property="og:title" content="Pine &amp; Pause | Verdea Tour Agency">
@@ -34,11 +32,10 @@
       <a href="#home" class="logo" aria-label="Verdea Tour Agency, back to top">Verdea</a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
+        <a href="#video-tour">Video</a>
         <a href="#package">Package</a>
         <a href="#stay">Stay</a>
         <a href="#day-1">Itinerary</a>
-        <a href="#watch">Watch</a>
-        <a href="#gallery">Gallery</a>
         <a href="#contact">Book</a>
       </nav>
       <span class="tagline">Tour &amp; Travel Management</span>
@@ -67,6 +64,20 @@
       </div>
       <a class="scroll-cue" href="#package" aria-label="Scroll to the package"><span>Scroll</span></a>
     </section>
+
+    <!-- Video tour -->
+  <section id="video-tour" class="section section-dark">
+   <div class="container">
+     <h2 class="display">See it in motion</h2>
+     <p class="lead">A short look at what a slow weekend in Baguio feels like.</p>
+     <div class="video-tour-frame">
+       <video controls preload="metadata" playsinline poster="images/thumbnail.webp">
+         <source src="videos/video.mp4" type="video/mp4">
+         <p>Your browser can't play this video. <a href="videos/video.mp4">Download it instead</a>.</p>
+        </video>
+      </div>
+    </div>
+  </section>
 
     <!-- Package overview -->
     <section id="package" class="split">
