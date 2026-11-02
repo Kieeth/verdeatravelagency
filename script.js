@@ -10,45 +10,27 @@ const MEDIA = {
 
   // Background photos
   heroImage: 'images/hero.webp',          // shows behind/before the hero video
-  packageImage: 'images/package.jpg',    // package section, right side
-  stayImage: 'images/accommodation.jpg', // City Hub Condominium
+  packageImage: 'images/package.webp',    // package section, right side
+  stayImage: 'images/cityhub.webp', // City Hub Condominium
   backdrop: 'images/moss.jpg',           // dark mossy sections and footer
 
-  // "Watch the escape" section
-  featuredVideo: { src: 'videos/tour.mp4', poster: 'images/tour-poster.jpg' },
-  clips: [
-    'videos/clip-1.mp4',
-    'videos/clip-2.mp4',
-    'videos/clip-3.mp4',
-  ],
 
-  // Gallery photos. Use a plain path, or { src, alt, caption } for more detail.
-  gallery: [
-    'images/gallery-1.jpg',
-    'images/gallery-2.jpg',
-    'images/gallery-3.jpg',
-    'images/gallery-4.jpg',
-    'images/gallery-5.jpg',
-    'images/gallery-6.jpg',
-    'images/gallery-7.jpg',
-    'images/gallery-8.jpg',
-  ],
 };
 
 const ACTIVITIES = {
   day1: [
-    { name: 'K Pilates', type: 'Pilates session', image: 'images/k-pilates.jpg' },
-    { name: 'Forest House', type: 'Lunch', image: 'images/forest-house.jpg' },
-    { name: 'Be Better Wellness', type: 'Massage', image: 'images/be-better-wellness.jpg' },
-    { name: 'OTOO', type: 'Matcha drinks', image: 'images/otoo-matcha.jpg' },
-    { name: 'OTOO', type: 'Pottery workshop', image: 'images/otoo-pottery.jpg' },
+    { name: 'K Pilates', type: 'Pilates session', image: 'images/k-pilates.webp' },
+    { name: 'Forest House', type: 'Lunch', image: 'images/forest-house.webp' },
+    { name: 'Be Better Wellness', type: 'Massage', image: 'images/be-better-wellness.webp' },
+    { name: 'OTOO', type: 'Matcha drinks', image: 'images/otoo-matcha.webp' },
+    { name: 'OTOO', type: 'Pottery workshop', image: 'images/otoo-pottery.webp' },
   ],
   day2: [
-    { name: 'Yoga', type: 'Morning session', image: 'images/yoga.jpg' },
-    { name: 'Wagner Cafe', type: 'Breakfast', image: 'images/wagner-cafe.jpg' },
-    { name: 'Man Apsol x H.O.Y. Brent', type: 'Cafe visit', image: 'images/brent-cafe.jpg' },
-    { name: 'Oh My Gulay!', type: 'Lunch', image: 'images/oh-my-gulay.jpg' },
-    { name: 'The Pavilion', type: 'Pickleball', image: 'images/pickleball.jpg' },
+    { name: 'Yoga', type: 'Morning session', image: 'images/yoga.webp' },
+    { name: 'Wagner Cafe', type: 'Breakfast', image: 'images/wagner-cafe.webp' },
+    { name: 'Man Apsol x H.O.Y. Brent', type: 'Cafe visit', image: 'images/brent-cafe.webp' },
+    { name: 'Oh My Gulay!', type: 'Lunch', image: 'images/oh-my-gulay.webp' },
+    { name: 'The Pavilion', type: 'Pickleball', image: 'images/pickleball.webp' },
   ],
 };
 
