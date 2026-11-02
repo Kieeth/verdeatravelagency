@@ -36,6 +36,7 @@
         <a href="#package">Package</a>
         <a href="#stay">Stay</a>
         <a href="#day-1">Itinerary</a>
+        <a href="#evaluation">Evaluation</a>
         <a href="#contact">Book</a>
       </nav>
       <span class="tagline">Tour &amp; Travel Management</span>
@@ -78,6 +79,7 @@
             <p>Your browser can't play this video. <a href="videos/video.mp4">Download it instead</a>.</p>
           </video>
           <div class="video-controls" hidden>
+            <input type="range" id="vc-seek" class="vc-seek" min="0" max="100" step="0.1" value="0" aria-label="Seek">
             <button type="button" class="vc" id="vc-play">Pause</button>
             <button type="button" class="vc" id="vc-sound">Sound on</button>
             <button type="button" class="vc" id="vc-full">Full screen</button>
@@ -163,6 +165,151 @@
       </div>
     </section>
 
+    <!-- Walkability & Tour Evaluation (Hanibuchi Walkability Checklist) -->
+    <section id="evaluation" class="section section-eval">
+      <div class="container">
+        <h2 class="display">Walkability &amp; Tour Evaluation</h2>
+        <p class="lead">Help us assess Baguio's streetscapes for slow tourism using the Hanibuchi Walkability Checklist.</p>
+        <form id="walkability-form" class="evaluation-form" novalidate>
+          <div class="eval-meta">
+            <div class="form-group">
+              <label for="assessor">Assessor name</label>
+              <input type="text" id="assessor" name="assessor" required autocomplete="name" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label for="eval-location">Location / street segment</label>
+              <input type="text" id="eval-location" name="location" required placeholder="e.g. Session Road, General Luna Rd">
+            </div>
+            <div class="form-group">
+              <label for="eval-date">Date</label>
+              <input type="date" id="eval-date" name="eval-date" required>
+            </div>
+          </div>
+
+        <fieldset class="eval-fieldset">
+          <legend>Infrastructure</legend>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">1.</span> Is there a sidewalk along this street segment?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 1">
+              <label class="choice"><input type="radio" name="q1" value="1" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q1" value="0"><span>No</span></label>
+            </div>
+          </div>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">2.</span> Is the sidewalk wide enough for comfortable pedestrian use?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 2">
+              <label class="choice"><input type="radio" name="q2" value="1" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q2" value="0"><span>No</span></label>
+            </div>
+          </div>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">3.</span> Are there obstructions blocking the pedestrian path (e.g., parked motorcycles, merchandise, debris)?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 3">
+              <label class="choice"><input type="radio" name="q3" value="0" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q3" value="1"><span>No</span></label>
+            </div>
+          </div>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">4.</span> Are there steep slopes that make walking difficult or uncomfortable?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 4">
+              <label class="choice"><input type="radio" name="q4" value="0" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q4" value="1"><span>No</span></label>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="eval-fieldset">
+          <legend>Traffic &amp; Safety</legend>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">5.</span> Is there street parking that encroaches on or conflicts with pedestrian space?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 5">
+              <label class="choice"><input type="radio" name="q5" value="0" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q5" value="1"><span>No</span></label>
+            </div>
+          </div>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">6.</span> Is there heavy vehicular traffic that makes walking feel unsafe or unpleasant?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 6">
+              <label class="choice"><input type="radio" name="q6" value="0" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q6" value="1"><span>No</span></label>
+            </div>
+          </div>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">7.</span> Is there sufficient foot traffic to indicate the street is actively used by pedestrians?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 7">
+              <label class="choice"><input type="radio" name="q7" value="1" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q7" value="0"><span>No</span></label>
+            </div>
+          </div>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">8.</span> Is there a marked crosswalk for safe road crossing?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 8">
+              <label class="choice"><input type="radio" name="q8" value="1" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q8" value="0"><span>No</span></label>
+            </div>
+          </div>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">9.</span> Are traffic mirrors present at intersections or blind spots?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 9">
+              <label class="choice"><input type="radio" name="q9" value="1" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q9" value="0"><span>No</span></label>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="eval-fieldset">
+          <legend>Amenities &amp; Aesthetics</legend>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">10.</span> Are streetlights present and functional along this segment?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 10">
+              <label class="choice"><input type="radio" name="q10" value="1" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q10" value="0"><span>No</span></label>
+            </div>
+          </div>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">11.</span> Are street trees or other greenery present along the sidewalk?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 11">
+              <label class="choice"><input type="radio" name="q11" value="1" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q11" value="0"><span>No</span></label>
+            </div>
+          </div>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">12.</span> Does the streetscape have attractive visual elements (e.g., facades, landscaping, heritage features)?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 12">
+              <label class="choice"><input type="radio" name="q12" value="1" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q12" value="0"><span>No</span></label>
+            </div>
+          </div>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">13.</span> Is there visible graffiti or litter that detracts from the environment?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 13">
+              <label class="choice"><input type="radio" name="q13" value="0" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q13" value="1"><span>No</span></label>
+            </div>
+          </div>
+          <div class="eval-question">
+            <p class="eval-q"><span class="eval-num">14.</span> Are there abandoned or derelict buildings visible along this segment?</p>
+            <div class="eval-choices" role="radiogroup" aria-label="Question 14">
+              <label class="choice"><input type="radio" name="q14" value="0" required><span>Yes</span></label>
+              <label class="choice"><input type="radio" name="q14" value="1"><span>No</span></label>
+            </div>
+          </div>
+        </fieldset>
+
+          <div class="form-group">
+            <label for="eval-notes">Notes / observations</label>
+            <textarea id="eval-notes" name="notes" rows="3" placeholder="Additional comments on walkability, safety, or tourism experience..."></textarea>
+          </div>
+
+          <div class="score-card" id="score-card" aria-live="polite">
+            <p class="score-total">Total score: <strong><span id="total-score">0</span> / 14</strong></p>
+            <p class="score-interpretation" id="score-interpretation">Answer the questions to see the walkability rating.</p>
+          </div>
+
+          <button type="submit" class="btn">Submit evaluation</button>
+          <p class="form-status" id="eval-form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section id="contact" class="section section-tint">
       <div class="container two-col top">
@@ -196,6 +343,7 @@
     <nav class="footer-nav" aria-label="Footer">
       <a href="#package">Package</a>
       <a href="#day-1">Itinerary</a>
+      <a href="#evaluation">Evaluation</a>
       <a href="#contact">Book</a>
     </nav>
     <p class="footer-line">&copy; <span id="year"></span> Verdea Tour Agency. Tour &amp; Travel Management.</p>
