@@ -11,7 +11,7 @@ const MEDIA = {
   // Background photos
   heroImage: 'images/hero.webp',          // shows behind/before the hero video
   packageImage: 'images/package.webp',    // package section, right side
-  stayImage: 'images/cityhub.webp', // City Hub Condominium
+  stayImage: 'images/condo.webp', // City Hub Condominium
   backdrop: 'images/moss.jpg',           // dark mossy sections and footer
 
 
