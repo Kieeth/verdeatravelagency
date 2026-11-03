@@ -14,7 +14,10 @@ const MEDIA = {
   stayImage: 'images/condo.webp', // City Hub Condominium
   backdrop: 'images/moss.jpg',           // dark mossy sections and footer
 
-
+  // Optional extras: add file names here and the sections appear on their own
+  featuredVideo: null,   // e.g. { src: 'videos/tour.mp4', poster: 'images/tour-poster.jpg' }
+  clips: [],             // e.g. ['videos/clip-1.mp4']
+  gallery: [],           // e.g. ['images/gallery-1.webp', { src: 'images/gallery-2.webp', caption: 'Session Road' }]
 };
 
 const ACTIVITIES = {
@@ -165,8 +168,9 @@ async function setupVideos() {
     found = true;
   }
 
-  const results = await Promise.all(MEDIA.clips.map((src) => probeVideo(src)));
-  MEDIA.clips.forEach((src, i) => {
+  const clips = MEDIA.clips || [];
+  const results = await Promise.all(clips.map((src) => probeVideo(src)));
+  clips.forEach((src, i) => {
     if (!results[i]) return;
     const figure = document.createElement('figure');
     figure.className = 'clip';
@@ -212,7 +216,7 @@ document.addEventListener('keydown', (event) => {
 
 async function setupGallery() {
   const grid = document.getElementById('gallery-grid');
-  const items = MEDIA.gallery.map((entry, i) => {
+  const items = (MEDIA.gallery || []).map((entry, i) => {
     const item = typeof entry === 'string' ? { src: entry } : entry;
     return { src: item.src, alt: item.alt || `Pine & Pause photo ${i + 1}`, caption: item.caption || '' };
   });
@@ -247,29 +251,10 @@ const header = document.getElementById('site-header');
 const navToggle = document.querySelector('.nav-toggle');
 const siteNav = document.getElementById('site-nav');
 
-/* Hides when scrolling down, returns when scrolling up */
-let lastY = window.scrollY;
-let ticking = false;
-const updateHeader = () => {
-  const y = Math.max(window.scrollY, 0);
-  header.classList.toggle('scrolled', y > 40);
-  const menuOpen = header.classList.contains('menu-open');
-  if (menuOpen || y < 120) {
-    header.classList.remove('nav-hidden');
-  } else if (y > lastY + 6) {
-    header.classList.add('nav-hidden');
-  } else if (y < lastY - 6) {
-    header.classList.remove('nav-hidden');
-  }
-  if (Math.abs(y - lastY) > 6) lastY = y;
-  ticking = false;
-};
-window.addEventListener('scroll', () => {
-  if (!ticking) { ticking = true; requestAnimationFrame(updateHeader); }
-}, { passive: true });
+/* Sticky nav: always visible, turns solid once you scroll */
+const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 40);
+window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
-// Keyboard users tabbing into the nav should always see it
-header.addEventListener('focusin', () => header.classList.remove('nav-hidden'));
 
 navToggle.addEventListener('click', () => {
   const open = siteNav.classList.toggle('open');
@@ -293,8 +278,10 @@ const status = document.getElementById('form-status');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+  status.classList.remove('error');
   if (!form.checkValidity()) {
     status.textContent = 'Please fill in your name, a valid email, and a message.';
+    status.classList.add('error');
     return;
   }
   // Hook up a real submission (email service, backend) here
@@ -431,4 +418,31 @@ if (!prefersReducedMotion && 'IntersectionObserver' in window) {
     statusEl.textContent = `Thanks! Your evaluation was received. Final score: ${score} / ${TOTAL}.`;
     form.reset();
   });
+})();
+
+/* =========================================================
+   Sticky bottom bar: shows after the hero, hides near the
+   booking form and footer so it never doubles up with them
+   ========================================================= */
+(() => {
+  const bar = document.getElementById('sticky-bar');
+  const hero = document.getElementById('home');
+  if (!bar || !hero || !('IntersectionObserver' in window)) return;
+
+  let heroInView = true;
+  const endInView = new Set();
+  const update = () => bar.classList.toggle('show', !heroInView && endInView.size === 0);
+
+  new IntersectionObserver(([entry]) => {
+    heroInView = entry.isIntersecting;
+    update();
+  }, { threshold: 0.6 }).observe(hero);
+
+  const endObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) endInView.add(entry.target); else endInView.delete(entry.target);
+    });
+    update();
+  }, { threshold: 0.1 });
+  document.querySelectorAll('#contact, .site-footer').forEach((el) => endObserver.observe(el));
 })();
